@@ -3,7 +3,7 @@
 using namespace std;
 
 int main() {
-  ifstream file("../input/day01.txt");
+    ifstream file("../input/day01.txt");
 
-  return 0;
+    return 0;
 }
