@@ -31,5 +31,5 @@ int main() {
     }
     cout << "Phase 1 ans: " << zeroCount << "\n";
     cout << "Phase 2 ans: " << passZeroCount << "\n";
-    return 0;
+    return EXIT_SUCCESS;
 }
