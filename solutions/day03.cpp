@@ -5,21 +5,17 @@ using namespace std;
 long part_2_sum(string bank) {
     long sum = 0;
     long place = 100000000000;
-    vector<int> digits(12, -1);
     int prevIndex = -1;
     for (int i = 0; i < 12; ++i) {
+        int digit = -1;
         for (int j = prevIndex + 1; j < bank.length() - (11 - i); ++j) {
             int rep = bank[j] - '0';
-            if (rep > digits[i]) {
-                digits[i] = rep;
+            if (rep > digit) {
+                digit = rep;
                 prevIndex = j;
             }
         }
-    }
-    for (int i = 0; i < 12; ++i) {
-        assert(digits[i] != -1);
-        assert(place > 0);
-        sum += digits[i] * place;
+        sum += digit * place;
         place /= 10;
     }
     return sum;
