@@ -16,7 +16,6 @@ int count_splits(vector<string> &grid, int row, int col) {
             ++splits;
             splits += count_splits(grid, i, col + 1);
             splits += count_splits(grid, i, col - 1);
-            return splits;
         default:
             return splits;
         }
@@ -27,14 +26,12 @@ int count_splits(vector<string> &grid, int row, int col) {
 long count_timelines(const vector<string> &grid, int row, int col, long timelines) {
     if (dp[row][col] != -1)
         return dp[row][col];
-    unordered_set<int> indexes;
     for (int i = row; i < grid.size(); ++i) {
-        indexes.insert(i);
         if (grid[i][col] == '^') {
             ++timelines;
             timelines += count_timelines(grid, i, col + 1, 0);
             timelines += count_timelines(grid, i, col - 1, 0);
-            for (int j : indexes)
+            for (int j = i; j >= row; --j)
                 dp[j][col] = timelines;
             return timelines;
         }
