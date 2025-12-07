@@ -50,7 +50,6 @@ int main() {
         grid.push_back(line);
     dp.resize(grid.size(), vector<long>(grid[0].length(), -1));
     int start = grid[0].find("S");
-    long timelines = count_timelines(grid, 0, start, 1);
-    printf("Part 1: %d\nPart 2: %ld\n", count_splits(grid, 0, start), timelines);
+    printf("Part 1: %d\nPart 2: %ld\n", count_splits(grid, 0, start), count_timelines(grid, 0, start, 1));
     return EXIT_SUCCESS;
 }

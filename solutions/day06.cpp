@@ -5,17 +5,17 @@ using namespace std;
 long solve_hw(const vector<vector<int>> &values, const vector<char> &operations) {
     long grand_total = 0;
     for (int i = 0; i < values[0].size(); ++i) {
-        long column_val = (operations[i] == '*');
+        long problem = (operations[i] == '*');
         for (int j = 0; j < values.size(); ++j) {
             switch (operations[i]) {
             case '+':
-                column_val += values[j][i];
+                problem += values[j][i];
                 break;
             default:
-                column_val *= values[j][i];
+                problem *= values[j][i];
             }
         }
-        grand_total += column_val;
+        grand_total += problem;
     }
     return grand_total;
 }
