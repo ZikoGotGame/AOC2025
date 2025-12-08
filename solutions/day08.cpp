@@ -43,12 +43,8 @@ int main() {
     vector<int> par, rank;
     int id = 0;
     while (file >> line) {
-        int idx = line.find(",");
-        int x = stoi(line.substr(0, idx));
-        line = line.substr(idx + 1);
-        idx = line.find(",");
-        int y = stoi(line.substr(0, idx));
-        int z = stoi(line.substr(idx + 1));
+        int x, y, z;
+        sscanf(line.c_str(), "%d,%d,%d", &x, &y, &z);
         juncs.emplace_back(x, y, z, id);
         par.push_back(id);
         rank.push_back(1);
